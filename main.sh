@@ -13,7 +13,7 @@ function generate_docker_files() {
 	folder_name=$image_name-$tag_name
 	echo $folder_name
 	mkdir -p $folder_name
-	echo "from $full_name" > $folder_name/Dockerfile
+	echo "from $image" > $folder_name/Dockerfile
 	echo "MAINTAINER Dillion <DillionMango@gmail.com>" >> $folder_name/Dockerfile
     done
 }

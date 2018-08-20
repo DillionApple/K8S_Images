@@ -1,2 +1,2 @@
-from pause:3.1
+from k8s.gcr.io/pause:3.1
 MAINTAINER Dillion <DillionMango@gmail.com>
