@@ -32,6 +32,20 @@ function pull_images() {
     done
 }
 
+function pull_canal_images() {
+    tags="calico-cni-v3.1.3 coreos-flannel-v0.9.1 calico-node-v3.1.3"
+    for tag in $tags
+    do
+	docker pull $DOCKER_REGISTRY_URL:$tag
+	part1=$(echo $tag | awk -F- '{ print $1 }')
+	part2=$(echo $tag | awk -F- '{ print $2 }')
+	part3=$(echo $tag | awk -F- '{ print $3 }')
+	image=quay.io/$part1/$part2:$part3
+	docker tag $DOCKER_REGISTRY_URL:$tag $image
+	docker rmi $DOCKER_REGISTRY_URL:$tag
+    done
+}
+
 
 case $1 in
     generate_docker_files)
@@ -40,7 +54,10 @@ case $1 in
     pull_images)
 	pull_images
 	;;
+    pull_canal_images)
+	pull_canal_images
+	;;
     *)
-	echo usage: generate_docker_files/pull_images
+	echo usage: generate_docker_files/pull_images/pull_canal_images
 esac
 
