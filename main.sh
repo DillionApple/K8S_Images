@@ -33,7 +33,7 @@ function pull_images() {
 }
 
 function pull_canal_images() {
-    tags="calico-cni-v3.1.3 coreos-flannel-v0.9.1 calico-node-v3.1.3"
+    tags=$(ls canal)
     for tag in $tags
     do
 	docker pull $DOCKER_REGISTRY_URL:$tag
