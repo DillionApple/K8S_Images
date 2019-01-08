@@ -1,6 +1,6 @@
 #!/bin/bash
 
-K8S_VERSION=1.11.2
+K8S_VERSION=1.13.1
 DOCKER_REGISTRY_URL=dillionmango/k8s_images
 
 images=$(kubeadm config --kubernetes-version $K8S_VERSION images list)

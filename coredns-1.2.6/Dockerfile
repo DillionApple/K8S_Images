@@ -1,0 +1,2 @@
+from k8s.gcr.io/coredns:1.2.6
+MAINTAINER Dillion <DillionMango@gmail.com>
